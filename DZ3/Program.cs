@@ -36,26 +36,26 @@
 
 // Lesson 3, Task 21
 Console.WriteLine("L3-T21");
-//Console.WriteLine("Веедите координаты точек A и B");
-//Console.Write("Введите координату X точки A = ");
-double Ax = 3; //Convert.ToDouble(Console.ReadLine());
-//Console.Write("Введите координату Y точки A = ");
-double Ay = 45; //Convert.ToDouble(Console.ReadLine());
-//Console.Write("Введите координату Z точки A = ");
-double Az = 34; //Convert.ToDouble(Console.ReadLine());
-//Console.Write("Введите координату X точки B = ");
-double Bx = 45; //Convert.ToDouble(Console.ReadLine());
-//Console.Write("Введите координату Y точки B = ");
-double By = 56; //Convert.ToDouble(Console.ReadLine());
-//Console.Write("Введите координату Z точки B = ");
-double Bz = 456; //Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Веедите координаты точек A и B");
+Console.Write("Введите координату X точки A = ");
+double Ax = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату Y точки A = ");
+double Ay = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату Z точки A = ");
+double Az = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату X точки B = ");
+double Bx = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату Y точки B = ");
+double By = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите координату Z точки B = ");
+double Bz = Convert.ToDouble(Console.ReadLine());
 
 double[] A = new double[] {Ax, Ay, Az};
 double[] B = new double[] {Bx, By, Bz};
 
 double dist(double[] AA, double[] BB)
 {
-    double AB = Math.Sqrt((Math.Pow(AA[0], 2) - Math.Pow(BB[0], 2)) + (Math.Pow(AA[1], 2) - Math.Pow(BB[1], 2)) + (Math.Pow(AA[2], 2) - Math.Pow(BB[2], 2)));
+    double AB = Math.Sqrt(Math.Pow((AA[0]-BB[0]), 2) + Math.Pow((AA[1]-BB[1]), 2) + Math.Pow((AA[2]-BB[2]), 2));
     return AB;
 }
 
