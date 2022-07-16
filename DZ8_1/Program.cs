@@ -48,67 +48,17 @@ int mm = m;
 
 
 
-// void Fill(int row, int col, int x)
-// {
-//     if ((table[row,col] == 0) && (row >= 0 && row < n) && (col >= 0 && col < m))
-//     {
-//         table[row,col] = x;
-//         // Правила хождения и закраски объекта внутри какой блок за чем идёт
-//         try
-//         {
-//             if (row == 0 && col == 0)
-//             {
-//                 while (col+1 < m)
-//                 {
-//                     Fill(row,col, x);
-//                     col++;
-//                     x++;
-//                 }
-//             }
-//             if (row == 0 && col == m-1)
-//             {
-//                 while (row+1 < n)
-//                 {
-//                     Fill(row,col, x);
-//                     row++;
-//                     x++;
-//                 }
-//             }
-//             if (row == n-1 && col == m-1)
-//             {
-//                 while (col != 0)
-//                 {
-//                     Fill(row,col, x);
-//                     col--;
-//                     x++;
-//                 }
-//             }
-//             if (row == n-1 && col == 0)
-//             {
-//                 while (row != 0)
-//                 {
-//                     Fill(row,col, x);
-//                     row--;
-//                     x++;
-//                 }
-//             }
-//         }
-//         catch (IndexOutOfRangeException e)
-//         {}
-//     }
-// }
-
 void Fill(int row, int col, int x)
 {
-    if ((table[row,col] == 0) && (row >= 0 && row < n) && (col >= 0 && col < m))
-    {
-        table[row,col] = x;
-        if (x >= (nn*mm - (nn-2)*(mm-2))) 
+    if (x >= (nn*mm - (nn-2)*(mm-2))) 
         {
             nn = nn - 2; 
             mm = mm - 2;
         }
 
+    if ((table[row,col] == 0) && (row >= 0 && row < n) && (col >= 0 && col < m))
+    {
+        table[row,col] = x;
         try
         {
             if (row == table.GetLength(0) - nn  && col == table.GetLength(1) - mm)
@@ -131,7 +81,7 @@ void Fill(int row, int col, int x)
             }
             if (row == nn-1 && col == mm-1)
             {
-                while (col != 0)
+                while (col != table.GetLength(1) - mm)
                 {
                     Fill(row,col, x);
                     col--;
@@ -140,7 +90,7 @@ void Fill(int row, int col, int x)
             }
             if (row == nn-1 && col == table.GetLength(1) - mm)
             {
-                while (row != 0)
+                while (row != table.GetLength(0) - nn)
                 {
                     Fill(row,col, x);
                     row--;
