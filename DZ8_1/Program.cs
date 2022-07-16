@@ -1,4 +1,6 @@
-﻿// Заполните спирально массив 4 на 4.
+﻿// Dont work
+
+// Заполните спирально массив 4 на 4.
 /* 
 1 2 3 4
 12 13 14 5
@@ -50,10 +52,13 @@ int mm = m;
 
 void Fill(int row, int col, int x)
 {
-    if (x >= (nn*mm - (nn-2)*(mm-2))) 
+    if (x == (nn*mm - (nn-2)*(mm-2))) 
         {
             nn = nn - 2; 
             mm = mm - 2;
+            row = table.GetLength(0) - nn - 1;
+            col = table.GetLength(1) - mm - 1;
+            x++;
         }
 
     if ((table[row,col] == 0) && (row >= 0 && row < n) && (col >= 0 && col < m))
